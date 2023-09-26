@@ -1,7 +1,7 @@
 ---
 title: "Week 02: COVID Visualization Activity"
 date: "September, 11 2023"
-author: "**`[[`**Your Name**`]]`**"
+author: "**`[[`**Tanvi Chennuru**`]]`**"
 ---
 
 Today, we'll be working with a data set related to COVID.
@@ -22,6 +22,13 @@ Try using the different data sets and see which ones are good for making which p
 
 ```{r first_plot}
 ggplot(covid_data_count, aes(x = date, y = Cases)) + geom_point()
+
+covid_data_count |>
+  filter(state== "CT")|>
+ggplot(aes(x = date, y = Cases, color = race)) + geom_line() 
+
+ggplot(covid_data_orig, aes(x = Date)) + geom_histogram(bindwidth = 2000)
+ggplot(covid_data_race, aes(x = date)) + geom_density()
 ```
 
 
@@ -36,6 +43,13 @@ covid_data_count |>
 ```
 
 1. Write code for a plot and describe what you observe?
+```{r first_plot}
+covid_data_count |>
+  filter(state== "CT")|>
+ggplot(aes(x = date, y = Cases, color = race)) + geom_line() 
 2. Are there any conclusions you can draw?
+   the highest COVID cases were amongst the white population in Connecticut. The Asian and AIAN populations were least affected by COVID cases over time. 
 3. What were you not able to do due to not having the R knowledge?
+   I wasn't sure how to create a bar graph for data in covid_data_long and covid_data_race using the different races as the x-axis. 
 4. What other data would be useful to better understand this data?
+ Some data that would be useful could be where the people live within each state (rural,suburban,urban) living. Also age-ranges would be helpful to understand the ages affected so it is not all dependant on race. 
